@@ -42,5 +42,5 @@ fSlope = rise/run #real numbers are called float
 print("Your slope is m = "+str(rise)+"/"+str(run))
 print("Your slope as a decimal is ",fSlope)
 
-os.system("say Your slope is m = "+str(rise)+"/"+str(run))
-os.system("say Your slope as a decimal is ",fSlope)
+os.system("say Your slope is m = "+str(rise)+" over "+str(run))
+os.system("say Your slope as a decimal is "+str(fSlope))
