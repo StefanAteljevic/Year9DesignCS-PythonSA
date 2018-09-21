@@ -1,3 +1,5 @@
+import os 
+
 print("****Slope Calculator****")
 #Python always assumes that your input is a
 #a string unless you tell it. 
@@ -6,7 +8,7 @@ print("****Slope Calculator****")
 #integers - int
 
 
-
+os.system("say Hello welcome to my Slope Calculator")
 #Input
 x1 = input("Input x1: ")
 x1 = int(x1) #casting
@@ -39,5 +41,6 @@ fSlope = rise/run #real numbers are called float
 #Output
 print("Your slope is m = "+str(rise)+"/"+str(run))
 print("Your slope as a decimal is ",fSlope)
-print(rise)
-print(run)
+
+os.system("say Your slope is m = "+str(rise)+"/"+str(run))
+os.system("say Your slope as a decimal is ",fSlope)
