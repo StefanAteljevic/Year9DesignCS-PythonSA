@@ -15,7 +15,6 @@ def submit(*args):
 	v = round (v,3)
 
 	output.config(state="normal")
-
 	outputValue = "Given\nradius: "+str(r)+" units\nheight: "+str(h)+" units\nThe volume is: "+str(v)+" units cubed\n\n"
 
 	output.delete(1.0,tk.END)
