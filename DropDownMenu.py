@@ -4,17 +4,18 @@ import tkinter as tk
 def change(*args):
 	print("running change")
 	print()
+	print(var.get())
 
 root = tk.Tk()
 
 OPTIONS = [
 
-	"eggs",
-	"bunny",
-	"chicken",
+	128,
+	129,
+	130,
 ]
 
-var = tk.StringVar(root)
+var = tk.IntVar(root)
 var.set(OPTIONS[0])
 var.trace("w",change)
 

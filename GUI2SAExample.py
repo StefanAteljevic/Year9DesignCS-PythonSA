@@ -25,23 +25,62 @@ output.grid(row = 1, column = 0, columnspan = 2)
 
 #Widget 3: Labels ********************
 word1Label = tk.Label(root, text = "Height (Cm)", background = "red", foreground = "blue")
-word1Label.grid(row = 2, column = 0, sticky = "NESW")
+word1Label.grid(row = 2, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 word2Label = tk.Label(root, text = "Weight (Kg)", background = "red", foreground = "blue")
-word2Label.grid(row = 6, column = 0, sticky = "NESW")
+word2Label.grid(row = 6, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 word3Label = tk.Label(root, text = "Age (Years)", background = "red", foreground = "blue")
-word3Label.grid(row = 8, column = 0, sticky = "NESW")
+word3Label.grid(row = 8, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 #Widget 4: Entry ***********************
-ent1 = tk.Entry(root)
-ent1.grid(row = 2, column = 1)
+def change(*args):
+	print("running change")
+	print()
+	print(var.get())
 
-ent2 = tk.Entry(root)
-ent2.grid(row = 6, column = 1)
+OPTIONS = [
 
-ent3 = tk.Entry(root)
-ent3.grid(row = 8, column = 1)
+	128,
+	129,
+	130,
+]
+
+var = tk.IntVar(root)
+var.set("Select Option")
+var.trace("w",change)
+
+dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
+dropDownMenu.grid(row = 2, column = 1)
+
+OPTIONS = [
+
+	100,
+	110,
+	120,
+]
+
+var = tk.IntVar(root)
+var.set("Select Option")
+var.trace("w",change)
+
+
+dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
+dropDownMenu.grid(row = 6, column = 1)
+
+OPTIONS = [
+
+	100,
+	110,
+	120,
+]
+
+var = tk.IntVar(root)
+var.set("Select Option")
+var.trace("w",change)
+
+dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
+dropDownMenu.grid(row = 8, column = 1)
 
 btnGo = tk.Button(root, text = "Input Data")
 btnGo.grid(row = 10, column = 1)
