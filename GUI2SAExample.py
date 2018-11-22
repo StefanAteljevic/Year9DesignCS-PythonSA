@@ -18,19 +18,19 @@ titleLabel.grid(row = 0, column = 0, columnspan = 2)
 
 #Widget 2: Text *********************
 output = tk.Text(root, height = 10, width = 70,background = "grey", font=("Helvetica", 12))
-output.insert(tk.END,"Welcome to your daily running tracker! Before you begin, you need to  input some facts about you.")
+output.insert(tk.END,"Welcome to your daily running tracker! Before you begin, you need to input some facts about you.")
 output.grid(row = 1, column = 0, columnspan = 2)
 #Height = Lines up and down, Width = characters across
 
 
 #Widget 3: Labels ********************
-word1Label = tk.Label(root, text = "Height (Cm)", background = "red", foreground = "blue")
+word1Label = tk.Label(root, text = "Height (Feet)", background = "red", foreground = "white")
 word1Label.grid(row = 2, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
-word2Label = tk.Label(root, text = "Weight (Kg)", background = "red", foreground = "blue")
+word2Label = tk.Label(root, text = "Weight (Kg)", background = "red", foreground = "white")
 word2Label.grid(row = 6, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
-word3Label = tk.Label(root, text = "Age (Years)", background = "red", foreground = "blue")
+word3Label = tk.Label(root, text = "Age (Years)", background = "red", foreground = "white")
 word3Label.grid(row = 8, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 #Widget 4: Entry ***********************
@@ -39,25 +39,12 @@ def change(*args):
 	print()
 	print(var.get())
 
-OPTIONS = [
-
-	128,
-	129,
-	130,
-]
-
-var = tk.IntVar(root)
-var.set("Select Option")
-var.trace("w",change)
-
-dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
-dropDownMenu.grid(row = 2, column = 1)
+ent1 = tk.Entry(root)
+ent1.grid(row = 2, column = 1)
 
 OPTIONS = [
 
-	100,
-	110,
-	120,
+	1, 2, 3, 4, 5, 6, 7, 8, 9
 ]
 
 var = tk.IntVar(root)
@@ -70,9 +57,9 @@ dropDownMenu.grid(row = 6, column = 1)
 
 OPTIONS = [
 
-	100,
-	110,
-	120,
+	111,
+	121,
+	121,
 ]
 
 var = tk.IntVar(root)
