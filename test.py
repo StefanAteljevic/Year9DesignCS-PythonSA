@@ -38,6 +38,8 @@ output.grid(row = 1, column = 0, columnspan = 2, sticky = "NESW")
 word1Label = tk.Label(root, text = "Height (Feet)", background = "#C50E00", foreground = "white")
 word1Label.grid(row = 2, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
+
+
 word2Label = tk.Label(root, text = "Weight (Kg)", background = "#C50E00", foreground = "white")
 word2Label.grid(row = 6, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
@@ -83,4 +85,3 @@ btnGo.grid(row = 9, column = 1)
 #Start it running
 #Wait for "EVENT"
 root.mainloop() #Starts the program
-
