@@ -29,7 +29,7 @@ titleLabel.grid(row = 0, column = 0, columnspan = 2)
 
 #Widget 2: Text *********************
 output = tk.Text(root, height = 10, width = 70,background = "grey", font=("Helvetica", 16))
-output.insert(tk.END,"Welcome to your Daily Running Tracker©! Before you begin, you need to input some facts      about you. This includes you height, your weight, and your age. This is so we can calculate       your Total Energy Expenditure (TEE). This value is used to estimate your daily calorie needs.    The TEE for men  = 864 − 9.72 × age + PA × (14.2 × weight + 503 × height)"
+output.insert(tk.END,"Welcome to your Daily Running Tracker©! Before you begin, you need to input some facts      about you. This includes you height, your weight, and your age. This is so we can calculate       your Total Energy Expenditure (TEE). This value is used to estimate your daily calorie needs.    The TEE for men = 864 − 9.72 × age + PA × 14.2 × weight + 503 × height).                                 The TEE for women = 387 − 7.31 × age + PA × (10.9 × weight + 660.7 × height)")
 output.grid(row = 1, column = 0, columnspan = 2, sticky = "NESW")
 #Height = Lines up and down, Width = characters across
 
