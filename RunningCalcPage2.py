@@ -10,25 +10,15 @@ def on_entry_click(event):
 
 def on_focusout1(event):
 	if ent1.get() == "":
-		ent1.insert(0, "Enter height ; i.e 5'7")
+		ent1.insert(0, "Enter distance ran ; i.e 10")
 		ent1.config(fg = "grey")
 		ent1.grid(row = 2, column = 1)
 
 def on_focusout2(event):
 	if ent2.get() == "":
-		ent2.insert(0, "Enter weight ; i.e 70")
+		ent2.insert(0, "Enter time of run ; i.e 60")
 		ent2.config(fg = "grey")
 		ent2.grid(row = 6, column = 1)
-
-def on_focusout3(event):
-	if ent3.get() == "":
-		ent3.insert(0, "Enter age ; i.e 15")
-		ent3.config(fg = "grey")
-		ent3.grid(row = 8, column = 1)
-
-
-
-
 
 root = tk.Tk()
 #Three stages to build elements/objects
@@ -45,14 +35,14 @@ word2Label.grid(row = 6, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 #Widget 2: Entry boxes****************
 ent1 = tk.Entry(root)
-ent1.insert(0, "Distance ran ; i.e 10")
+ent1.insert(0, "Enter distance ran ; i.e 10")
 ent1.bind("<FocusIn>", on_entry_click)
 ent1.bind("<FocusOut>", on_focusout1)
 ent1.config(fg = "grey")
 ent1.grid(row = 2, column = 1)
 
 ent2 = tk.Entry(root)
-ent2.insert(0, "Time of run ; i.e 60")
+ent2.insert(0, "Enter time of run ; i.e 60")
 ent2.bind("<FocusIn>", on_entry_click)
 ent2.bind("<FocusOut>", on_focusout2)
 ent2.config(fg = "grey")
