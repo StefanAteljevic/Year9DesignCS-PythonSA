@@ -94,7 +94,7 @@ ent3.grid(row = 8, column = 1)
 btnGo = tk.Button(root, text = "Input Data")
 btnGo.grid(row = 9, column = 1)
 
-#Widget 7: Logo 
+#Widget 7: Logo ******************** 
 
 logo = tk.PhotoImage(file = "ABC.png")
 logoImage = tk.Label(image = logo)
