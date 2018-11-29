@@ -30,6 +30,11 @@ def on_focusout3(event):
 		ent3.insert(0, "Enter age ; i.e 15")
 		ent3.config(fg = "grey")
 		ent3.grid(row = 8, column = 1)
+
+def change(*args):
+	print("running change")
+	print()
+	print(var.get())
     
 
 
@@ -60,6 +65,9 @@ word2Label.grid(row = 6, column = 0, sticky = "NESW", padx = 30, pady = 30)
 word3Label = tk.Label(root, text = "Age (Years)", background = "#C50E00", foreground = "white")
 word3Label.grid(row = 8, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
+word4Label = tk.Label(root, text = "Gender", background = "#C50E00", foreground = "white")
+word4Label.grid(row = 9, column = 0, sticky = "NESW", padx = 30, pady = 30)
+
 #Widget 4: Checkbox ******************
 
 contrast = tk.IntVar()
@@ -89,14 +97,30 @@ ent3.bind("<FocusOut>", on_focusout3)
 ent3.config(fg = "grey")
 ent3.grid(row = 8, column = 1)
 
+#Widget 6: Dropsown ********************
+
+OPTIONS = [
+
+	"Male",
+	"Female",
+	"Other",
+]
+
+var = tk.IntVar(root)
+var.set(OPTIONS[0])
+var.trace("w",change)
+
+dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
+dropDownMenu.grid(row = 9, column = 1, sticky = "NS")
+
 #Widget 6: Input data button ************
 
 btnGo = tk.Button(root, text = "Input Data")
-btnGo.grid(row = 9, column = 1)
+btnGo.grid(row = 10, column = 1)
 
 #Widget 7: Logo ******************** 
 
-logo = tk.PhotoImage(file = "ABC.png")
+logo = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage = tk.Label(image = logo)
 logoImage.config(background = "white")
 logoImage.grid(row = 0, column = 0, columnspan = 2)

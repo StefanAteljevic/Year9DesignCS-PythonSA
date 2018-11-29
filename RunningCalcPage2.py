@@ -50,12 +50,12 @@ ent2.grid(row = 6, column = 1)
 
 #Widget 3: Text ***********************
 
-output = tk.Text(root, height = 10, width = 70,background = "grey", font=("Helvetica", 16))
-output.insert(tk.END,"Text")
+output = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
+output.insert(tk.END,"                                                           Today you ran ___ KM                                                                                                                       Your pace is ___ per KM                                                                                                                     You burned ___ Calories")
 output.grid(row = 11, column = 0, columnspan = 2, sticky = "NESW")
 
 #Widget 4: Logo ***********************
-logo = tk.PhotoImage(file = "ABC.png")
+logo = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage = tk.Label(image = logo)
 logoImage.config(background = "white")
 logoImage.grid(row = 0, column = 0, columnspan = 2)
@@ -63,6 +63,12 @@ logoImage.grid(row = 0, column = 0, columnspan = 2)
 #Widget 5:
 btnGo = tk.Button(root, text = "Input Data")
 btnGo.grid(row = 7, column = 1)
+
+#Widget 6: Checkbox ******************
+
+contrast = tk.IntVar()
+check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=contrast)
+check1.grid()
 
 
 
