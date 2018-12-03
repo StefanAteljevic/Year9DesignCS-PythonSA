@@ -15,7 +15,7 @@ def on_entry_click(event):
 
 def on_focusout1(event):
 	if ent1.get() == "":
-		ent1.insert(0, "Enter rhr ; i.e 80")
+		ent1.insert(0, "Enter height ; i.e 5'7")
 		ent1.config(fg = "grey")
 		ent1.grid(row = 2, column = 1)
 
@@ -36,6 +36,30 @@ def change(*args):
 	print()
 	print(var.get())
     
+
+####RUN APP 2
+#Defining certain events.
+#4 definitions below are for faded text when clicking on entry boxes
+def on_entry_click2(event):
+   print(event.widget)
+   event.widget.delete(0, "end") # delete all the text in the entry
+   event.widget.insert(0, '') #Insert blank for user input
+   event.widget.config(fg = "black") #The inserted text becomes black
+
+def on_focusout12(event):
+	if ent12.get() == "":
+		ent12.insert(0, "Enter distance ran ; i.e 10")
+		ent12.config(fg = "grey")
+		ent12.grid(row = 2, column = 1)
+
+def on_focusout22(event):
+	if ent22.get() == "":
+		ent22.insert(0, "Enter time of run ; i.e 60")
+		ent22.config(fg = "grey")
+		ent22.grid(row = 6, column = 1)
+
+
+
 
 
 root = tk.Tk()
@@ -124,6 +148,52 @@ logo = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage = tk.Label(image = logo)
 logoImage.config(background = "white")
 logoImage.grid(row = 0, column = 0, columnspan = 2)
+
+##************SCREEN 2
+#Widget 1: Labels*********************
+word1Label2 = tk.Label(root, text = "Distance ran (KM)", background = "#C50E00", foreground = "white")
+word1Label2.grid(row = 2, column = 2, sticky = "NESW", padx = 30, pady = 30)
+
+word2Label2 = tk.Label(root, text = "Time of run (Minutes)", background = "#C50E00", foreground = "white")
+word2Label2.grid(row = 6, column = 2, sticky = "NESW", padx = 30, pady = 30)
+
+#Widget 2: Entry boxes****************
+ent12 = tk.Entry(root)
+ent12.insert(0, "Enter distance ran ; i.e 10")
+ent12.bind("<FocusIn>", on_entry_click2)
+ent12.bind("<FocusOut>", on_focusout12)
+ent12.config(fg = "grey")
+ent12.grid(row = 2, column = 2)
+
+ent22 = tk.Entry(root)
+ent22.insert(0, "Enter time of run ; i.e 60")
+ent22.bind("<FocusIn>", on_entry_click2)
+ent22.bind("<FocusOut>", on_focusout22)
+ent22.config(fg = "grey")
+ent22.grid(row = 6, column = 2)
+
+#Widget 3: Text ***********************
+
+output2 = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
+output2.insert(tk.END,"                                                           Today you ran ___ KM                                                                                                                       Your pace is ___ per KM                                                                                                                     You burned ___ Calories")
+output2.grid(row = 11, column = 2, columnspan = 2, sticky = "NESW")
+
+#Widget 4: Logo ***********************
+logo2 = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
+logoImage2 = tk.Label(image = logo2)
+logoImage2.config(background = "white")
+logoImage2.grid(row = 0, column = 2, columnspan = 2)
+
+#Widget 5:
+btnGo2 = tk.Button(root, text = "Input Data")
+btnGo2.grid(row = 7, column = 3)
+
+#Widget 6: Checkbox ******************
+
+contrast2 = tk.IntVar()
+check12 = tk.Checkbutton(root, text="High Contrast On/Off", variable=contrast2)
+check12.grid()
+
 
 
 
