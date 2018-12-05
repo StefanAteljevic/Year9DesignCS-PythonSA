@@ -44,7 +44,7 @@ def changeStateContrast(*args):
 		check1.config(bg = "black", fg = "yellow")
 		check2.config(bg = "black", fg = "yellow")
 	if var1.get() == 0:
-		root.config(bg = "white")
+		root.config(bg = "#D4796A")
 		check1.config(bg = "white",fg = "black")
 		check2.config(bg = "white",fg = "black")
 
@@ -140,6 +140,8 @@ word3Label.grid(row = 7, column = 0, sticky = "NESW", padx = 30, pady = 30)
 word4Label = tk.Label(root, text = "Gender", background = "#C50E00", foreground = "white")
 word4Label.grid(row = 8, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
+#***
+
 word5Label = tk.Label(root, text = "Distance ran (KM)", background = "#C50E00", foreground = "white")
 word5Label.grid(row = 2, column = 2, sticky = "NESW", padx = 30, pady = 30)
 
@@ -224,6 +226,8 @@ dropDownMenu.grid(row = 8, column = 1, sticky = "NS")
 btnGo = tk.Button(root, text = "Input Data")
 btnGo.grid(row = 10, column = 1)
 
+#***
+
 btnGo2 = tk.Button(root, text = "Input Data")
 btnGo2.grid(row = 7, column = 2)
 
@@ -233,6 +237,8 @@ logo = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage = tk.Label(image = logo)
 logoImage.config(background = "white")
 logoImage.grid(row = 0, column = 2, columnspan = 2)
+
+#***
 
 logo2 = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage2 = tk.Label(image = logo)
