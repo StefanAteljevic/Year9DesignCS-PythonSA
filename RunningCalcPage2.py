@@ -20,6 +20,29 @@ def on_focusout2(event):
 		ent2.config(fg = "grey")
 		ent2.grid(row = 6, column = 1)
 
+def changeStateContrast(*args):
+	print("Changed Contrast")
+	print(var1.get())
+	if var1.get() == 1:
+		root.config(bg = "black")
+		check1.config(bg = "black", fg = "yellow")
+		check2.config(bg = "black", fg = "yellow")
+	if var1.get() == 0:
+		root.config(bg = "white")
+		check1.config(bg = "white",fg = "black")
+		check2.config(bg = "white",fg = "black")
+
+def changeStateFont(*args):
+	print("Changed Font")
+	print(var1.get())
+	if var2.get() == 1:
+		check1.config(font=("Courier", 44))
+		check2.config(font=("Courier", 44))
+
+	if var2.get() == 0:
+		check1.config(font=("Courier", 20))
+		check2.config(font=("Courier", 20))
+
 root = tk.Tk()
 #Three stages to build elements/objects
 #1. Construct the object: We build and configure it.
@@ -62,13 +85,27 @@ logoImage.grid(row = 0, column = 0, columnspan = 2)
 
 #Widget 5:
 btnGo = tk.Button(root, text = "Input Data")
-btnGo.grid(row = 7, column = 1)
+btnGo.grid(row = 9, column = 1)
 
 #Widget 6: Checkbox ******************
 
+var1 = tk.IntVar()
+
+
 contrast = tk.IntVar()
-check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=contrast)
+
+check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=var1)
+check1.config(font=("Courier", 16))
 check1.grid()
+var1.trace("w",changeStateContrast)
+
+
+var2 = tk.IntVar()
+
+check2 = tk.Checkbutton(root, text="Large Font", variable=var2)
+check2.config(font=("Courier", 16))
+check2.grid()
+var2.trace("w",changeStateFont)
 
 
 

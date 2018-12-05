@@ -35,6 +35,32 @@ def change(*args):
 	print("running change")
 	print()
 	print(var.get())
+
+def changeStateContrast(*args):
+	print("Changed Contrast")
+	print(var1.get())
+	if var1.get() == 1:
+		root.config(bg = "black")
+		check1.config(bg = "black", fg = "yellow")
+		check2.config(bg = "black", fg = "yellow")
+	if var1.get() == 0:
+		root.config(bg = "white")
+		check1.config(bg = "white",fg = "black")
+		check2.config(bg = "white",fg = "black")
+
+def changeStateFont(*args):
+	print("Changed Font")
+	print(var1.get())
+	if var2.get() == 1:
+		check1.config(font=("Courier", 44))
+		check2.config(font=("Courier", 44))
+
+	if var2.get() == 0:
+		check1.config(font=("Courier", 20))
+		check2.config(font=("Courier", 20))
+
+
+
     
 
 
@@ -69,11 +95,21 @@ word4Label = tk.Label(root, text = "Gender", background = "#C50E00", foreground 
 word4Label.grid(row = 9, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 #Widget 4: Checkbox ******************
-
+var1 = tk.IntVar()
 contrast = tk.IntVar()
-check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=contrast)
-check1.grid()
 
+check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=var1)
+check1.config(font=("Courier", 16))
+check1.grid()
+var1.trace("w",changeStateContrast)
+
+
+var2 = tk.IntVar()
+
+check2 = tk.Checkbutton(root, text="Large Font", variable=var2)
+check2.config(font=("Courier", 16))
+check2.grid()
+var2.trace("w",changeStateFont)
 #Widget 5: Entry ***********************
 
 ent1 = tk.Entry(root)
@@ -124,6 +160,10 @@ logo = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage = tk.Label(image = logo)
 logoImage.config(background = "white")
 logoImage.grid(row = 0, column = 0, columnspan = 2)
+
+#Process ***************************
+
+x1 = ent1
 
 
 

@@ -15,7 +15,7 @@ def on_entry_click(event):
 
 def on_focusout1(event):
 	if ent1.get() == "":
-		ent1.insert(0, "Enter height ; i.e 5'7")
+		ent1.insert(0, "Enter rhr ; i.e 80")
 		ent1.config(fg = "grey")
 		ent1.grid(row = 2, column = 1)
 
@@ -35,31 +35,75 @@ def change(*args):
 	print("running change")
 	print()
 	print(var.get())
-    
 
-####RUN APP 2
-#Defining certain events.
-#4 definitions below are for faded text when clicking on entry boxes
+def changeStateContrast(*args):
+	print("Changed Contrast")
+	print(var1.get())
+	if var1.get() == 1:
+		root.config(bg = "black")
+		check1.config(bg = "black", fg = "yellow")
+		check2.config(bg = "black", fg = "yellow")
+	if var1.get() == 0:
+		root.config(bg = "white")
+		check1.config(bg = "white",fg = "black")
+		check2.config(bg = "white",fg = "black")
+
+def changeStateFont(*args):
+	print("Changed Font")
+	print(var1.get())
+	if var2.get() == 1:
+		check1.config(font=("Courier", 44))
+		check2.config(font=("Courier", 44))
+
+	if var2.get() == 0:
+		check1.config(font=("Courier", 20))
+		check2.config(font=("Courier", 20))
+
+
+
+
 def on_entry_click2(event):
    print(event.widget)
    event.widget.delete(0, "end") # delete all the text in the entry
    event.widget.insert(0, '') #Insert blank for user input
    event.widget.config(fg = "black") #The inserted text becomes black
 
-def on_focusout12(event):
-	if ent12.get() == "":
-		ent12.insert(0, "Enter distance ran ; i.e 10")
-		ent12.config(fg = "grey")
-		ent12.grid(row = 2, column = 1)
+def on_focusout4(event):
+	if ent1.get() == "":
+		ent1.insert(0, "Enter distance ran ; i.e 10")
+		ent1.config(fg = "grey")
+		ent1.grid(row = 2, column = 1)
 
-def on_focusout22(event):
-	if ent22.get() == "":
-		ent22.insert(0, "Enter time of run ; i.e 60")
-		ent22.config(fg = "grey")
-		ent22.grid(row = 6, column = 1)
+def on_focusout5(event):
+	if ent2.get() == "":
+		ent2.insert(0, "Enter time of run ; i.e 60")
+		ent2.config(fg = "grey")
+		ent2.grid(row = 6, column = 1)
 
+def changeStateContrast2(*args):
+	print("Changed Contrast")
+	print(var1.get())
+	if var1.get() == 1:
+		root.config(bg = "black")
+		check1.config(bg = "black", fg = "yellow")
+		check2.config(bg = "black", fg = "yellow")
+	if var1.get() == 0:
+		root.config(bg = "white")
+		check1.config(bg = "white",fg = "black")
+		check2.config(bg = "white",fg = "black")
 
+def changeStateFont2(*args):
+	print("Changed Font")
+	print(var1.get())
+	if var2.get() == 1:
+		check1.config(font=("Courier", 44))
+		check2.config(font=("Courier", 44))
 
+	if var2.get() == 0:
+		check1.config(font=("Courier", 20))
+		check2.config(font=("Courier", 20))
+
+    
 
 
 root = tk.Tk()
@@ -76,6 +120,10 @@ titleLabel.grid(row = 0, column = 0, columnspan = 2)
 output = tk.Text(root, height = 10, width = 70,background = "grey", font=("Helvetica", 16))
 output.insert(tk.END,"Welcome to your Daily Running Tracker!! Before you begin, you need to input some facts        about you. This includes your resting heart rate, your weight, and your age. This is so we can   calculate your total calories burned during a run. The formulas used are -                                     Men: Calories Burned = [(Age x 0.2017) — (Weight x 0.09036) + (Heart Rate x 0.6309) — 55.0969] x Time / 4.184.                                                                                                                          Women: Calories Burned = [(Age x 0.074) — (Weight x 0.05741) + (Heart Rate x 0.4472) — 20.4022] x Time / 4.184.                                                                                                                                                                                                                                                                                                                                               Have fun running! - Stefan")
 output.grid(row = 1, column = 0, columnspan = 2, sticky = "NESW")
+
+output2 = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
+output2.insert(tk.END,"                                                           Today you ran ___ KM                                                                                                                       Your pace is ___ per KM                                                                                                                     You burned ___ Calories")
+output2.grid(row = 7, column = 2, columnspan = 2, sticky = "NESW")
 #Height = Lines up and down, Width = characters across
 
 
@@ -87,16 +135,33 @@ word2Label = tk.Label(root, text = "Weight (Pounds)", background = "#C50E00", fo
 word2Label.grid(row = 6, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 word3Label = tk.Label(root, text = "Age (Years)", background = "#C50E00", foreground = "white")
-word3Label.grid(row = 8, column = 0, sticky = "NESW", padx = 30, pady = 30)
+word3Label.grid(row = 7, column = 0, sticky = "NESW", padx = 30, pady = 30)
 
 word4Label = tk.Label(root, text = "Gender", background = "#C50E00", foreground = "white")
-word4Label.grid(row = 9, column = 0, sticky = "NESW", padx = 30, pady = 30)
+word4Label.grid(row = 8, column = 0, sticky = "NESW", padx = 30, pady = 30)
+
+word5Label = tk.Label(root, text = "Distance ran (KM)", background = "#C50E00", foreground = "white")
+word5Label.grid(row = 2, column = 2, sticky = "NESW", padx = 30, pady = 30)
+
+word6Label = tk.Label(root, text = "Time of run (Minutes)", background = "#C50E00", foreground = "white")
+word6Label.grid(row = 6, column = 2, sticky = "NESW", padx = 30, pady = 30)
 
 #Widget 4: Checkbox ******************
-
+var1 = tk.IntVar()
 contrast = tk.IntVar()
-check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=contrast)
+
+check1 = tk.Checkbutton(root, text="High Contrast On/Off", variable=var1)
+check1.config(font=("Courier", 16))
 check1.grid()
+var1.trace("w",changeStateContrast)
+
+
+var2 = tk.IntVar()
+
+check2 = tk.Checkbutton(root, text="Large Font", variable=var2)
+check2.config(font=("Courier", 16))
+check2.grid()
+var2.trace("w",changeStateFont)
 
 #Widget 5: Entry ***********************
 
@@ -119,7 +184,23 @@ ent3.insert(0, "Enter age ; i.e 15")
 ent3.bind("<FocusIn>", on_entry_click)
 ent3.bind("<FocusOut>", on_focusout3)
 ent3.config(fg = "grey")
-ent3.grid(row = 8, column = 1)
+ent3.grid(row = 7, column = 1)
+
+#***
+
+ent4 = tk.Entry(root)
+ent4.insert(0, "Enter distance ran ; i.e 10")
+ent4.bind("<FocusIn>", on_entry_click2)
+ent4.bind("<FocusOut>", on_focusout4)
+ent4.config(fg = "grey")
+ent4.grid(row = 2, column = 3)
+
+ent5 = tk.Entry(root)
+ent5.insert(0, "Enter time of run ; i.e 60")
+ent5.bind("<FocusIn>", on_entry_click2)
+ent5.bind("<FocusOut>", on_focusout5)
+ent5.config(fg = "grey")
+ent5.grid(row = 6, column = 3)
 
 #Widget 6: Dropsown ********************
 
@@ -135,64 +216,35 @@ var.set(OPTIONS[0])
 var.trace("w",change)
 
 dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
-dropDownMenu.grid(row = 9, column = 1, sticky = "NS")
+dropDownMenu.configure(background = "#D4796A")
+dropDownMenu.grid(row = 8, column = 1, sticky = "NS")
 
 #Widget 6: Input data button ************
 
 btnGo = tk.Button(root, text = "Input Data")
 btnGo.grid(row = 10, column = 1)
 
+btnGo2 = tk.Button(root, text = "Input Data")
+btnGo2.grid(row = 7, column = 2)
+
 #Widget 7: Logo ******************** 
 
 logo = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
 logoImage = tk.Label(image = logo)
 logoImage.config(background = "white")
-logoImage.grid(row = 0, column = 0, columnspan = 2)
+logoImage.grid(row = 0, column = 2, columnspan = 2)
 
-##************SCREEN 2
-#Widget 1: Labels*********************
-word1Label2 = tk.Label(root, text = "Distance ran (KM)", background = "#C50E00", foreground = "white")
-word1Label2.grid(row = 2, column = 2, sticky = "NESW", padx = 30, pady = 30)
-
-word2Label2 = tk.Label(root, text = "Time of run (Minutes)", background = "#C50E00", foreground = "white")
-word2Label2.grid(row = 6, column = 2, sticky = "NESW", padx = 30, pady = 30)
-
-#Widget 2: Entry boxes****************
-ent12 = tk.Entry(root)
-ent12.insert(0, "Enter distance ran ; i.e 10")
-ent12.bind("<FocusIn>", on_entry_click2)
-ent12.bind("<FocusOut>", on_focusout12)
-ent12.config(fg = "grey")
-ent12.grid(row = 1, column = 2)
-
-ent22 = tk.Entry(root)
-ent22.insert(0, "Enter time of run ; i.e 60")
-ent22.bind("<FocusIn>", on_entry_click2)
-ent22.bind("<FocusOut>", on_focusout22)
-ent22.config(fg = "grey")
-ent22.grid(row = 6, column = 2)
-
-#Widget 3: Text ***********************
-
-output2 = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
-output2.insert(tk.END,"                                                           Today you ran ___ KM                                                                                                                       Your pace is ___ per KM                                                                                                                     You burned ___ Calories")
-output2.grid(row = 11, column = 2, columnspan = 2, sticky = "NESW")
-
-#Widget 4: Logo ***********************
 logo2 = tk.PhotoImage(file = "YourDailyRunningTrackerLogo.png")
-logoImage2 = tk.Label(image = logo2)
+logoImage2 = tk.Label(image = logo)
 logoImage2.config(background = "white")
-logoImage2.grid(row = 0, column = 2, columnspan = 2)
+logoImage2.grid(row = 0, column = 0, columnspan = 2)
 
-#Widget 5:
-btnGo2 = tk.Button(root, text = "Input Data")
-btnGo2.grid(row = 7, column = 3)
+#Colours ***************************
 
-#Widget 6: Checkbox ******************
+root.configure(background = "#D4796A")
 
-contrast2 = tk.IntVar()
-check12 = tk.Checkbutton(root, text="High Contrast On/Off", variable=contrast2)
-check12.grid()
+#Process ***************************
+
 
 
 
