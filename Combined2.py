@@ -31,10 +31,14 @@ def on_focusout3(event):
 		ent3.config(fg = "grey")
 		ent3.grid(row = 8, column = 1)
 
+#Defintion for change
+
 def change(*args):
 	print("running change")
 	print()
-	print(var.get())
+	#print(var.get())
+
+#Definitions for the contrast and font buttons
 
 def changeStateContrast(*args):
 	print("Changed Contrast")
@@ -60,7 +64,7 @@ def changeStateFont(*args):
 		check2.config(font=("Courier", 20))
 
 
-
+#*** Definitions for faded text
 
 def on_entry_click2(event):
    print(event.widget)
@@ -103,6 +107,59 @@ def changeStateFont2(*args):
 		check1.config(font=("Courier", 20))
 		check2.config(font=("Courier", 20))
 
+#Definition for the submit button
+
+def submit(*args):
+	#assumption is that ent1 is an integes
+	#I want you to try this and if something goes
+	#wrong immediatly go to the except
+	print(btnGo["text"])
+	if btnGo["text"] == "Input Data":
+		try:
+			var1 = int(ent1.get())
+			print("*")
+			var2 = int(ent2.get())
+			print("**")
+			var3 = int(ent3.get())
+			print("***")
+			var4 = var.get()
+			print("****")
+			
+
+			plist.append(var1)
+			plist.append(var2)
+			plist.append(var3)
+			plist.append(var4)
+			
+					
+
+
+
+		except:
+			print("ERROR")
+
+		ent1.config(state = "disabled")
+		ent2.config(state = "disabled")
+		ent3.config(state = "disabled")
+		dropDownMenu.config(state = "disabled")
+		btnGo.config(text = "Update Information")
+	else:
+
+		ent1.config(state = "normal")
+		ent2.config(state = "normal")
+		ent3.config(state = "normal")
+		dropDownMenu.config(state = "normal")
+		btnGo.config(text = "Input Data")
+		#delete plist
+		while (len(plist) > 0):
+			plist.pop()
+	#ent1.delete(0,tk.END)
+	print(plist)
+
+
+
+plist = []
+dlist = []
     
 
 
@@ -213,7 +270,7 @@ OPTIONS = [
 	"Other",
 ]
 
-var = tk.IntVar(root)
+var = tk.StringVar(root)
 var.set(OPTIONS[0])
 var.trace("w",change)
 
@@ -223,7 +280,7 @@ dropDownMenu.grid(row = 8, column = 1, sticky = "NS")
 
 #Widget 6: Input data button ************
 
-btnGo = tk.Button(root, text = "Input Data")
+btnGo = tk.Button(root, text = "Input Data", command = submit)
 btnGo.grid(row = 10, column = 1)
 
 #***
