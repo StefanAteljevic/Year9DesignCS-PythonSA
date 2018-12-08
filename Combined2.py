@@ -157,6 +157,39 @@ def submit(*args):
 	print(plist)
 
 
+	print(btnGo2["text"])
+	if btnGo2["text"] == "Input Info":
+		try: 
+			var5 = int(ent4.get())
+			print("*")
+			var6 = int(ent5.get())
+			print("**")
+
+			dlist.append(var5)
+			dlist.append(var6)
+
+
+		except:
+			print("ERROR")
+
+		ent4.config(state = "disabled")
+		ent5.config(state = "disabled")
+		btnGo2.config(text = "Enter Information")
+	else:
+
+		ent4.config(state = "normal")
+		ent5.config(state = "normal")
+		btnGo2.config(text = "Input Info")
+		while (len(dlist) > 0):
+			dlist.pop()
+	print(dlist)
+
+
+
+	
+
+
+
 
 plist = []
 dlist = []
@@ -177,10 +210,12 @@ titleLabel.grid(row = 0, column = 0, columnspan = 2)
 output = tk.Text(root, height = 10, width = 70,background = "grey", font=("Helvetica", 16))
 output.insert(tk.END,"Welcome to your Daily Running Tracker!! Before you begin, you need to input some facts        about you. This includes your resting heart rate, your weight, and your age. This is so we can   calculate your total calories burned during a run. The formulas used are -                                     Men: Calories Burned = [(Age x 0.2017) — (Weight x 0.09036) + (Heart Rate x 0.6309) — 55.0969] x Time / 4.184.                                                                                                                          Women: Calories Burned = [(Age x 0.074) — (Weight x 0.05741) + (Heart Rate x 0.4472) — 20.4022] x Time / 4.184.                                                                                                                                                                                                                                                                                                                                               Have fun running! - Stefan")
 output.grid(row = 1, column = 0, columnspan = 2, sticky = "NESW")
+output.config(state = "disabled")
 
 output2 = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
 output2.insert(tk.END,"                                                           Today you ran ___ KM                                                                                                                       Your pace is ___ per KM                                                                                                                     You burned ___ Calories")
 output2.grid(row = 7, column = 2, columnspan = 2, sticky = "NESW")
+output2.config(state = "disabled")
 #Height = Lines up and down, Width = characters across
 
 
@@ -285,7 +320,7 @@ btnGo.grid(row = 10, column = 1)
 
 #***
 
-btnGo2 = tk.Button(root, text = "Input Data")
+btnGo2 = tk.Button(root, text = "Input Info", command = submit)
 btnGo2.grid(row = 7, column = 2)
 
 #Widget 7: Logo ******************** 
