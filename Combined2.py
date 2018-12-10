@@ -2,6 +2,7 @@
 #All the support material to make GUI elements.
 #by including "as tk"we are giving a short name to use.
 import tkinter as tk
+import math
 
 
 
@@ -156,7 +157,7 @@ def submit(*args):
 	#ent1.delete(0,tk.END)
 	print(plist)
 
-
+	
 	print(btnGo2["text"])
 	if btnGo2["text"] == "Input Info":
 		try: 
@@ -213,7 +214,7 @@ output.grid(row = 1, column = 0, columnspan = 2, sticky = "NESW")
 output.config(state = "disabled")
 
 output2 = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
-output2.insert(tk.END,"                                                           Today you ran ___ KM                                                                                                                       Your pace is ___ per KM                                                                                                                     You burned ___ Calories")
+output2.insert(tk.END,"                                                           Today you ran "dlist2"                                                                                                                 Your pace is per KM                                                                                                                     You burned "[(plist3 * 0.2017) - (plist2 * 0.09036) + (plist1 * 0.6309) - (55.0969)] * (dlist2) / (4.184)Calories"")
 output2.grid(row = 7, column = 2, columnspan = 2, sticky = "NESW")
 output2.config(state = "disabled")
 #Height = Lines up and down, Width = characters across

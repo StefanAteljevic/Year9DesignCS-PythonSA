@@ -85,7 +85,7 @@ logoImage.grid(row = 0, column = 0, columnspan = 2)
 
 #Widget 5:
 btnGo = tk.Button(root, text = "Input Data")
-btnGo.grid(row = 9, column = 1)
+btnGo.grid(row = 7, column = 1)
 
 #Widget 6: Checkbox ******************
 
