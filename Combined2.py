@@ -144,6 +144,7 @@ def submit(*args):
 		ent3.config(state = "disabled")
 		dropDownMenu.config(state = "disabled")
 		btnGo.config(text = "Update Information")
+		btnGo2.config(state = "normal")
 	else:
 
 		ent1.config(state = "normal")
@@ -157,7 +158,7 @@ def submit(*args):
 	#ent1.delete(0,tk.END)
 	print(plist)
 
-	
+def submit2(*args):
 	print(btnGo2["text"])
 	if btnGo2["text"] == "Input Info":
 		try: 
@@ -168,21 +169,27 @@ def submit(*args):
 
 			dlist.append(var5)
 			dlist.append(var6)
-
-
 		except:
-			print("ERROR")
+			print("bad data")
 
-		ent4.config(state = "disabled")
-		ent5.config(state = "disabled")
-		btnGo2.config(text = "Enter Information")
-	else:
 
-		ent4.config(state = "normal")
-		ent5.config(state = "normal")
-		btnGo2.config(text = "Input Info")
-		while (len(dlist) > 0):
-			dlist.pop()
+	#Update output 2
+	cb = 0 #store calories burned
+
+	if plist[3] == "Male":
+		cb = (plist[2]*0.2017 - plist[1] * 0.09036 + plist[0] * 0.6309 - 55.0969 * dlist[1])/4.184
+	output2.config(state = "normal")
+	output2.delete("1.0",tk.END)
+	output2.insert("1.0","You have burned: "+str(cb)+" calories")
+	output2.config(state = "disabled")
+
+	if plist[3] == "Female":
+		cb = (plist[2]*0.074 - plist[1] * 0.05741 + plist[0] * 0.4472 - 20.4022 * dlist[1]/4.184
+	output2.config(state = "normal")
+	output2.delete("1.0",tk.END)
+	output2.insert("1.0","You have burned:  "+str(cb)+" calories")
+	output2.config(state = "disabled")
+	
 	print(dlist)
 
 
@@ -194,7 +201,6 @@ def submit(*args):
 
 plist = []
 dlist = []
-    
 
 
 root = tk.Tk()
@@ -214,8 +220,7 @@ output.grid(row = 1, column = 0, columnspan = 2, sticky = "NESW")
 output.config(state = "disabled")
 
 output2 = tk.Text(root, height = 3, width = 70,background = "grey", font=("Helvetica", 16))
-output2.insert(tk.END,"                                                           Today you ran "dlist2"                                                                                                                 Your pace is per KM                                                                                                                     You burned "[(plist3 * 0.2017) - (plist2 * 0.09036) + (plist1 * 0.6309) - (55.0969)] * (dlist2) / (4.184)Calories"")
-output2.grid(row = 7, column = 2, columnspan = 2, sticky = "NESW")
+output2.grid(row = 8, column = 2, columnspan = 2, sticky = "NESW")
 output2.config(state = "disabled")
 #Height = Lines up and down, Width = characters across
 
@@ -321,7 +326,8 @@ btnGo.grid(row = 10, column = 1)
 
 #***
 
-btnGo2 = tk.Button(root, text = "Input Info", command = submit)
+btnGo2 = tk.Button(root, text = "Input Info", command = submit2)
+btnGo2.config(state = "disabled")
 btnGo2.grid(row = 7, column = 2)
 
 #Widget 7: Logo ******************** 
