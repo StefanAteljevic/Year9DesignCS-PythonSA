@@ -162,37 +162,51 @@ def submit2(*args):
 	print(btnGo2["text"])
 	if btnGo2["text"] == "Input Info":
 		try: 
-			var5 = int(ent4.get())
+			var1 = int(ent4.get())
 			print("*")
-			var6 = int(ent5.get())
+			var2 = int(ent5.get())
 			print("**")
 
-			dlist.append(var5)
-			dlist.append(var6)
+			dlist.append(var1)
+			dlist.append(var2)
+
+			#Update output 2
+			cb = 0 #store calories burned
+
+		
+
+			if plist[3] == "Female":
+				cb = (plist[2]*0.074 - plist[1] * 0.05741 + plist[0] * 0.4472 - 20.4022 * dlist[len(dlist) - 1])/4.184
+			else:
+				cb = (plist[2]*0.2017 - plist[1] * 0.09036 + plist[0] * 0.6309 - 55.0969 * dlist[len(dlist) - 1])/4.184
+			
+
+			
+			output2.config(state = "normal")
+			output2.delete("1.0","2.0")
+			output2.insert("1.0","You have burned: "+str(cb)+" calories\n")
+			output2.insert("2.0","You have run: "+str(dlist[len(dlist) - 2])+" KM\n")
+			output2.insert("3.0","Your pace is: "+str(dlist[len(dlist) - 1]) / str(dlist[len(dlist) - 2])+" Minutes per KM\n")
+			output2.config(state = "disabled")
+			print(dlist)
 		except:
 			print("bad data")
 
 
-	#Update output 2
-	cb = 0 #store calories burned
 
-	if plist[3] == "Male":
-		cb = (plist[2]*0.2017 - plist[1] * 0.09036 + plist[0] * 0.6309 - 55.0969 * dlist[1])/4.184
-	output2.config(state = "normal")
-	output2.delete("1.0",tk.END)
-	output2.insert("1.0","You have burned: "+str(cb)+" calories")
-	output2.config(state = "disabled")
+			'''
+	dr = 0
 
-	if plist[3] == "Female":
-		cb = (plist[2]*0.074 - plist[1] * 0.05741 + plist[0] * 0.4472 - 20.4022 * dlist[1]/4.184
-	output2.config(state = "normal")
-	output2.delete("1.0",tk.END)
-	output2.insert("1.0","You have burned:  "+str(cb)+" calories")
-	output2.config(state = "disabled")
+	if dlist[0] == int: 
+		dr = (dlist[0])
+		output2.config(state = "normal")
+		output2.delete("2.0","3.0")
+		output2.insert("2.0","You have run: "+str(dr)+" KM" )
+		output2.config(state = "disabled")
 	
 	print(dlist)
 
-
+	'''
 
 	
 
