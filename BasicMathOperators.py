@@ -7,6 +7,6 @@ x = 0
 # ** Power
 #Supports order of operations (BEDMAS)
 y = 15
-x = 3*(2+4) + y
+x = 3*(2+4) + y 
 
 print(x)

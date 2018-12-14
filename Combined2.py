@@ -180,13 +180,14 @@ def submit2(*args):
 			else:
 				cb = (plist[2]*0.2017 - plist[1] * 0.09036 + plist[0] * 0.6309 - 55.0969 * dlist[len(dlist) - 1])/4.184
 			
+			pace = (dlist[len(dlist) - 1]) / (dlist[len(dlist) - 2])
 
 			
 			output2.config(state = "normal")
 			output2.delete("1.0","2.0")
 			output2.insert("1.0","You have burned: "+str(cb)+" calories\n")
 			output2.insert("2.0","You have run: "+str(dlist[len(dlist) - 2])+" KM\n")
-			output2.insert("3.0","Your pace is: "+str(dlist[len(dlist) - 1]) / str(dlist[len(dlist) - 2])+" Minutes per KM\n")
+			output2.insert("3.0","Your pace is: "+str(pace)+" Minutes per KM\n")
 			output2.config(state = "disabled")
 			print(dlist)
 		except:
@@ -331,7 +332,7 @@ var.trace("w",change)
 
 dropDownMenu = tk.OptionMenu(root,var, OPTIONS[0],OPTIONS[1],OPTIONS[2])
 dropDownMenu.configure(background = "#D4796A")
-dropDownMenu.grid(row = 8, column = 1, sticky = "NS")
+dropDownMenu.grid(row = 8, column = 1,)
 
 #Widget 6: Input data button ************
 
@@ -363,7 +364,6 @@ logoImage2.grid(row = 0, column = 0, columnspan = 2)
 root.configure(background = "#D4796A")
 
 #Process ***************************
-
 
 
 

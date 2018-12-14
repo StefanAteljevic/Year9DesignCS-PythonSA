@@ -10,7 +10,7 @@ def submit(*args):
 		list.append(var)
 		
 	except:
-		print("dude, that isn't an int")
+		print("Please enter an integer!")
 
 	ent1.delete(0,tk.END)
 	print(list)
